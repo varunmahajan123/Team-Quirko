@@ -1,0 +1,524 @@
+/* =========================================
+   GLOBAL RESET & FONTS
+   ========================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen, ubuntu, cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    background-color: #050505;
+    /* Near black background */
+    color: #ffffff;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* =========================================
+   SECTION 1: SPLIT HERO (100vh)
+   ========================================= */
+/* =========================================
+   SECTION 1: SPLIT HERO (100vh)
+   ========================================= */
+.split-hero {
+    display: flex;
+    min-height: 120vh;
+    /* Explicit increase as requested */
+    height: auto;
+    width: 100%;
+    position: relative;
+    overflow: visible;
+    /* Disable clipping */
+    padding-bottom: 120px;
+    /* Large bottom padding */
+    align-items: flex-start;
+    /* Ensure content starts from top */
+}
+
+.panel {
+    width: 50%;
+    /* Remove fixed height to allow content to push down */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+    position: relative;
+}
+
+/* Zepto Side */
+.zepto-panel {
+    background: radial-gradient(circle at 50% 50%, #3e0a6e 0%, #1a0430 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Spotify Side */
+.spotify-panel {
+    background: radial-gradient(circle at 50% 50%, #0d381e 0%, #020f06 100%);
+}
+
+.brand-title {
+    font-size: 4rem;
+    /* Big title */
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    margin-bottom: 4vh;
+    z-index: 2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.zepto-panel .brand-title {
+    color: #a855f7;
+    /* Brighter purple text */
+}
+
+.spotify-panel .brand-title {
+    color: #22c55e;
+    /* Bright spotify green text */
+}
+
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.device-mockup {
+    width: 320px;
+    /* Mobile width */
+    height: 600px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+}
+
+.device-mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* or contain, depending on image aspect */
+}
+
+.pill-label {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Center Overlay */
+.center-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    /* Safari */
+    padding: 40px 60px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.overlay-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.overlay-text {
+    font-size: 3rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.text-mood {
+    background: linear-gradient(135deg, #a855f7, #6b21a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-moment {
+    background: linear-gradient(135deg, #22c55e, #14532d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-arrow {
+    color: #666;
+    font-size: 2.5rem;
+}
+
+
+/* =========================================
+   SECTION 2: TWO-WAY FLOW CARDS
+   ========================================= */
+.flow-section {
+    padding: 100px 20px;
+    background-color: #050505;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.flow-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.flow-card {
+    width: 280px;
+    height: 480px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-zepto {
+    background: linear-gradient(180deg, rgba(88, 28, 135, 0.2) 0%, rgba(59, 7, 100, 0.2) 100%);
+    color: #d8b4fe;
+    /* Light purple text */
+    box-shadow: 0 0 30px rgba(88, 28, 135, 0.1) inset;
+}
+
+.card-spotify {
+    background: linear-gradient(180deg, rgba(20, 83, 45, 0.2) 0%, rgba(5, 46, 22, 0.2) 100%);
+    color: #86efac;
+    /* Light green text */
+    box-shadow: 0 0 30px rgba(20, 83, 45, 0.1) inset;
+}
+
+/* Row 2 variants */
+.card-spotify-flat {
+    background: linear-gradient(180deg, rgba(20, 83, 45, 0.15) 0%, rgba(0, 0, 0, 0) 100%);
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.2);
+}
+
+.card-zepto-flat {
+    background: linear-gradient(180deg, rgba(88, 28, 135, 0.15) 0%, rgba(0, 0, 0, 0) 100%);
+    color: #c084fc;
+    border-color: rgba(192, 132, 252, 0.2);
+}
+
+
+.flow-arrow {
+    font-size: 2rem;
+    color: #444;
+}
+
+.flow-caption {
+    color: #888;
+    font-size: 1rem;
+    margin-top: -30px;
+    /* Pull closer to first row */
+    font-weight: 500;
+}
+
+
+/* =========================================
+   SECTION 3: VALUE PROPOSITION CARDS
+   ========================================= */
+.value-section {
+    padding: 80px 20px;
+    background-color: #050505;
+    display: flex;
+    justify-content: center;
+}
+
+.value-grid {
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+}
+
+.value-card {
+    background: #0a0a0a;
+    width: 280px;
+    padding: 40px 20px;
+    border-radius: 20px;
+    border: 1px solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.value-card:hover {
+    border-color: #333;
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.value-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    color: #888;
+    font-size: 0.95rem;
+}
+
+
+/* =========================================
+   SECTION 4: STRATEGY FUNNEL
+   ========================================= */
+.funnel-section {
+    padding: 100px 20px;
+    background-color: #050505;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 150px;
+}
+
+.funnel-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.funnel-step {
+    background: #0a0a0a;
+    width: 100%;
+    padding: 30px 0;
+    border-radius: 16px;
+    border: 1px solid #1a1a1a;
+    text-align: center;
+}
+
+.funnel-step h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.funnel-step p {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.funnel-arrow {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+
+/* Responsive adjustments if needed, though desktop-first strict */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    /* 1. Horizontal Swipe Split */
+    .split-hero {
+        flex-direction: row;
+        /* Keep row for horizontal scroll */
+        overflow-x: auto;
+        /* Enable horizontal scroll */
+        overflow-y: hidden;
+        /* Lock vertical in this section if needed, or allow */
+        scroll-snap-type: x mandatory;
+        /* Snap effect */
+        width: 100vw;
+        height: 100vh;
+        /* Full viewport height for slider */
+        min-height: 100vh;
+        padding-bottom: 0;
+        /* Reset desktop padding */
+        position: relative;
+    }
+
+    .panel {
+        width: 100vw;
+        /* Full width slides */
+        min-width: 100vw;
+        height: 100vh;
+        scroll-snap-align: start;
+        padding-top: 120px;
+        /* Space for sticky header */
+        justify-content: flex-start;
+    }
+
+    /* 2. Sticky Context Anchor */
+    .center-overlay {
+        position: fixed;
+        /* Stick to screen */
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8) !important;
+        /* Force scale, override JS */
+        width: max-content;
+        padding: 20px 30px;
+        margin: 0;
+        z-index: 100;
+        animation: none;
+        /* Disable fade in movement if conflicting */
+    }
+
+    /* Override JS parallax on mobile */
+    .center-overlay[style] {
+        transform: translateX(-50%) scale(0.8) !important;
+    }
+
+    .brand-title {
+        font-size: 2.5rem;
+        /* Smaller mobile title */
+        margin-bottom: 20px;
+    }
+
+    /* 3. Phone Mockups on Mobile */
+    .device-mockup {
+        width: 85%;
+        /* Max width 85-90% */
+        max-width: 320px;
+        height: auto;
+        aspect-ratio: 320/600;
+        /* Maintain aspect ratio */
+        margin-bottom: 24px;
+    }
+
+    /* 4. Pill Labels */
+    .pill-label {
+        margin-top: 0;
+        /* Ensure specific mobile spacing if device mockup margin isn't enough */
+    }
+
+    /* 5. Mobile Swipe Indicator */
+    .mobile-swipe-indicator {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 50;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 8px 16px;
+        border-radius: 20px;
+        backdrop-filter: blur(4px);
+    }
+
+    .indicator-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .indicator-dot.active {
+        background: #fff;
+    }
+
+    .swipe-text {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+    }
+
+    /* Adjust other sections for mobile flow */
+    .flow-row,
+    .value-grid {
+        flex-direction: column;
+    }
+
+    /* Fix Footer on Mobile */
+    .site-footer {
+        width: 100%;
+        /* Reset to 100% since we are in flow */
+        margin-left: 0;
+        margin-right: 0;
+        left: auto;
+        right: auto;
+    }
+}
+
+/* Desktop hide indicator */
+@media (min-width: 769px) {
+    .mobile-swipe-indicator {
+        display: none;
+    }
+}
+
+
+/* =========================================
+   SECTION 5: FOOTER (STRICT ALIGNMENT)
+   ========================================= */
+.site-footer {
+    width: 100vw;
+    /* Force full viewport width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center vertically if needed */
+    align-items: center;
+    /* Center horizontally (Critical) */
+    text-align: center;
+    padding: 60px 0;
+    /* Vertical spacing */
+    margin-top: 40px;
+    /* Separation from previous section */
+    background-color: transparent;
+    /* No background as requested */
+    box-sizing: border-box;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    position: relative;
+}
+
+.footer-primary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e5e5e5;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.footer-secondary {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #888;
+    opacity: 0.8;
+}
