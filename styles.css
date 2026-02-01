@@ -24,8 +24,26 @@ img {
 }
 
 /* =========================================
-   SECTION 1: SPLIT HERO (100vh)
+   ANIMATIONS & UTILITIES
    ========================================= */
+.fade-up-init {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.fade-in-init {
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
+    will-change: opacity;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* =========================================
    SECTION 1: SPLIT HERO (100vh)
    ========================================= */
@@ -42,6 +60,55 @@ img {
     /* Large bottom padding */
     align-items: flex-start;
     /* Ensure content starts from top */
+}
+
+/* =========================================
+   GLOW SYSTEM (Unified)
+   ========================================= */
+
+/* 1. Shared Animations - DISABLED */
+/* No animations allowed for Sleek Neon */
+
+/* 2. Brand Variables & Classes */
+:root {
+    /* Sleek Neon Colors - Sharp & Flat */
+    --zepto-purple: #9333ea;
+    /* Deep, rich purple */
+    --zepto-purple-alpha: rgba(147, 51, 234, 0.25);
+    /* Subtle tint */
+    --zepto-border: rgba(147, 51, 234, 0.3);
+
+    --spotify-green: #16a34a;
+    /* Deep, rich green */
+    --spotify-green-alpha: rgba(22, 163, 74, 0.25);
+    /* Subtle tint */
+    --spotify-border: rgba(22, 163, 74, 0.3);
+}
+
+/* "Neon Ink" Text Style - Tight radius, no spread */
+.glow-text-zepto {
+    text-shadow: 0 0 5px var(--zepto-purple-alpha);
+    opacity: 1;
+    animation: none;
+}
+
+.glow-text-spotify {
+    text-shadow: 0 0 5px var(--spotify-green-alpha);
+    opacity: 1;
+    animation: none;
+}
+
+/* "Edge Lighting" Box Style - Inset glow, no outer bloom */
+.glow-box-zepto {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), inset 0 0 0 1px var(--zepto-border);
+    border-color: transparent;
+    animation: none;
+}
+
+.glow-box-spotify {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), inset 0 0 0 1px var(--spotify-border);
+    border-color: transparent;
+    animation: none;
 }
 
 .panel {
@@ -68,48 +135,29 @@ img {
 
 .brand-title {
     font-size: 4rem;
-    /* Big title */
     font-weight: 800;
     letter-spacing: 0.15em;
     margin-bottom: 4vh;
     z-index: 2;
+    /* Base text shadow */
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .zepto-panel .brand-title {
     color: #a855f7;
-    /* Brighter purple text */
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
+    animation: none;
+    /* Static */
 }
 
 .spotify-panel .brand-title {
     color: #22c55e;
-    /* Bright spotify green text */
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+    animation: none;
+    /* Static */
 }
 
-.panel-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-}
-
-.device-mockup {
-    width: 320px;
-    /* Mobile width */
-    height: 600px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 40px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    position: relative;
-}
-
-.device-mockup img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* or contain, depending on image aspect */
-}
+/* ... existing code ... */
 
 .pill-label {
     background: rgba(255, 255, 255, 0.1);
@@ -120,6 +168,19 @@ img {
     letter-spacing: 0.5px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Apply specific glows to pills based on parent */
+.zepto-panel .pill-label {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 0 1px var(--zepto-border);
+    border-color: transparent;
+    animation: none;
+}
+
+.spotify-panel .pill-label {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 0 0 1px var(--spotify-border);
+    border-color: transparent;
+    animation: none;
 }
 
 /* Center Overlay */
@@ -156,16 +217,40 @@ img {
     gap: 15px;
 }
 
+@keyframes glow-pulse-filter {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 5px var(--glow-color-alpha)) drop-shadow(0 0 10px var(--glow-color-alpha));
+        opacity: 0.95;
+    }
+
+    50% {
+        filter: drop-shadow(0 0 8px var(--glow-color)) drop-shadow(0 0 15px var(--glow-color-alpha));
+        opacity: 1;
+    }
+}
+
+/* ... existing code ... */
+
 .text-mood {
     background: linear-gradient(135deg, #a855f7, #6b21a8);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4));
+    /* Sleek Ink */
+    animation: none;
 }
 
 .text-moment {
     background: linear-gradient(135deg, #22c55e, #14532d);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 2px rgba(34, 197, 94, 0.4));
+    /* Sleek Ink */
+    animation: none;
 }
 
 .text-arrow {
@@ -348,124 +433,142 @@ img {
 /* Responsive adjustments */
 @media (max-width: 768px) {
 
-    /* 1. Horizontal Swipe Split */
+    /* 1. Strict Split-Screen Layout */
     .split-hero {
         flex-direction: row;
-        /* Keep row for horizontal scroll */
-        overflow-x: auto;
-        /* Enable horizontal scroll */
+        /* Force row */
+        overflow-x: hidden;
+        /* No swipe */
         overflow-y: hidden;
-        /* Lock vertical in this section if needed, or allow */
-        scroll-snap-type: x mandatory;
-        /* Snap effect */
-        width: 100vw;
-        height: 100vh;
-        /* Full viewport height for slider */
+        scroll-snap-type: none;
+        /* No snap */
+        width: 100%;
+        height: auto;
         min-height: 100vh;
         padding-bottom: 0;
-        /* Reset desktop padding */
-        position: relative;
+        align-items: center;
+        /* Center vertically */
     }
 
     .panel {
-        width: 100vw;
-        /* Full width slides */
-        min-width: 100vw;
+        width: 50%;
+        /* 50% width each */
+        min-width: 50%;
         height: 100vh;
-        scroll-snap-align: start;
-        padding-top: 120px;
-        /* Space for sticky header */
+        min-height: auto;
+        padding-top: 100px;
+        /* Space for top elements */
+        scroll-snap-align: none;
         justify-content: flex-start;
+        border-right: none;
     }
 
-    /* 2. Sticky Context Anchor */
-    .center-overlay {
-        position: fixed;
-        /* Stick to screen */
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%) scale(0.8) !important;
-        /* Force scale, override JS */
-        width: max-content;
-        padding: 20px 30px;
-        margin: 0;
-        z-index: 100;
-        animation: none;
-        /* Disable fade in movement if conflicting */
+    .zepto-panel {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
     }
 
-    /* Override JS parallax on mobile */
-    .center-overlay[style] {
-        transform: translateX(-50%) scale(0.8) !important;
-    }
-
+    /* 2. Brand Title Scaling */
     .brand-title {
-        font-size: 2.5rem;
-        /* Smaller mobile title */
-        margin-bottom: 20px;
+        font-size: 1.5rem;
+        /* Much smaller */
+        margin-bottom: 2vh;
+        letter-spacing: 0.05em;
     }
 
-    /* 3. Phone Mockups on Mobile */
+    /* 3. Phone Mockups Scaling */
     .device-mockup {
-        width: 85%;
-        /* Max width 85-90% */
-        max-width: 320px;
+        width: 90%;
+        /* Fit within 50% column */
+        max-width: 160px;
+        /* Cap size */
         height: auto;
         aspect-ratio: 320/600;
-        /* Maintain aspect ratio */
-        margin-bottom: 24px;
-    }
-
-    /* 4. Pill Labels */
-    .pill-label {
-        margin-top: 0;
-        /* Ensure specific mobile spacing if device mockup margin isn't enough */
-    }
-
-    /* 5. Mobile Swipe Indicator */
-    .mobile-swipe-indicator {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        position: fixed;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 50;
-        pointer-events: none;
-        background: rgba(0, 0, 0, 0.6);
-        padding: 8px 16px;
+        margin-bottom: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        /* Lighter shadow */
         border-radius: 20px;
-        backdrop-filter: blur(4px);
     }
 
-    .indicator-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.4);
+    /* 4. Pills Positioning */
+    .pill-label {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+        white-space: nowrap;
+        margin-top: 0;
+        backdrop-filter: none;
+        /* Perf */
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 30px;
     }
 
-    .indicator-dot.active {
-        background: #fff;
+    /* 5. Center Mood-Moment Overlay */
+    .center-overlay {
+        position: absolute;
+        /* No fixed/sticky */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.65) !important;
+        /* Fixed scale */
+        width: max-content;
+        padding: 15px 25px;
+        margin: 0;
+        z-index: 50;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        white-space: nowrap;
     }
 
-    .swipe-text {
+    .overlay-icon {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+    }
+
+    .overlay-text {
+        font-size: 1.8rem;
+        gap: 8px;
+    }
+
+    .text-arrow {
+        font-size: 1.5rem;
+    }
+
+    /* 6. Hide Swipe Indicator */
+    .mobile-swipe-indicator {
+        display: none !important;
+    }
+
+    /* 7. Footer & Sections */
+    .flow-row {
+        flex-direction: row;
+        /* Strict split for flow */
+        width: 100%;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .flow-card {
+        width: 45%;
+        /* Fit side by side */
+        height: 200px;
+        /* Reduced height */
+        font-size: 0.7rem;
+        /* Tiny text */
+        padding: 10px;
+    }
+
+    .flow-arrow {
+        font-size: 1rem;
+    }
+
+    .flow-caption {
         font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.8);
-        font-weight: 500;
     }
 
-    /* Adjust other sections for mobile flow */
-    .flow-row,
     .value-grid {
         flex-direction: column;
     }
 
-    /* Fix Footer on Mobile */
     .site-footer {
         width: 100%;
-        /* Reset to 100% since we are in flow */
         margin-left: 0;
         margin-right: 0;
         left: auto;
