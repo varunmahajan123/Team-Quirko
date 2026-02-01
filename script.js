@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateObserver = new IntersectionObserver(fadeInUp, observerOptions);
 
     // Select elements to animate
-    const animatedElements = document.querySelectorAll('.device-mockup, .pill-label, .flow-card, .value-card, .funnel-step');
+    const animatedElements = document.querySelectorAll('.device-mockup, .pill-label, .flow-card, .value-card, .funnel-step, .mobile-heading-small, .mobile-supporting-text, .insight-heading, .insight-subtext, .lock-in-heading, .lock-in-subtext, .framing-main, .framing-sub, .context-label');
 
     animatedElements.forEach((el, index) => {
         el.classList.add('fade-up-init');

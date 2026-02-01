@@ -625,3 +625,212 @@ img {
     color: #888;
     opacity: 0.8;
 }
+
+/* =========================================
+   MOBILE REDESIGN (Strict Mobile Only)
+   ========================================= */
+
+/* Default: Hide mobile elements on desktop */
+.mobile-hero-container,
+.mobile-only-text {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    /* 1. Hide Desktop Hero & Floating Overlay */
+    /* Override any previous display properties */
+    .split-hero {
+        display: none !important;
+    }
+
+    /* Also hide the center overlay explicitly */
+    .center-overlay {
+        display: none !important;
+    }
+
+    /* 2. Show Mobile Elements */
+    .mobile-hero-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #050505;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .mobile-only-text {
+        display: block;
+    }
+
+    /* 3. SECTION STYLES */
+    .mobile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 60px 24px;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Typography */
+    .mobile-heading-small {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #888;
+        margin-bottom: 40px;
+        font-weight: 600;
+        opacity: 0.8;
+    }
+
+    .mobile-supporting-text {
+        margin-top: 40px;
+        font-size: 1.1rem;
+        color: #e5e5e5;
+        line-height: 1.6;
+        max-width: 340px;
+        font-weight: 400;
+    }
+
+    /* Zepto Specifics */
+    .zepto-section {
+        background: radial-gradient(circle at 50% 20%, rgba(147, 51, 234, 0.1) 0%, #050505 60%);
+        padding-top: 80px;
+    }
+
+    .zepto-section .mobile-heading-small {
+        color: #d8b4fe;
+        opacity: 1;
+    }
+
+    /* Spotify Specifics */
+    .spotify-section {
+        background: radial-gradient(circle at 50% 20%, rgba(22, 163, 74, 0.1) 0%, #050505 60%);
+        padding-top: 60px;
+    }
+
+    .spotify-section .mobile-heading-small {
+        color: #86efac;
+        opacity: 1;
+    }
+
+    /* Mockups - Ensure full view */
+    .mobile-mockup {
+        width: 200px;
+        max-width: 70%;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        margin: 0 auto;
+        border-radius: 24px;
+        overflow: hidden;
+    }
+
+    /* Insight Connector */
+    .insight-section {
+        padding: 100px 30px;
+        background: transparent;
+    }
+
+    .insight-heading {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.25;
+        margin-bottom: 24px;
+    }
+
+    .insight-subtext {
+        font-size: 1.05rem;
+        color: #999;
+        line-height: 1.6;
+    }
+
+    /* Transition Arrow */
+    .transition-section {
+        padding: 10px 0 50px 0;
+        gap: 15px;
+    }
+
+    .mobile-arrow {
+        font-size: 2.5rem;
+        color: #444;
+        animation: fadeArrow 1.5s ease-in-out infinite;
+    }
+
+    .context-label {
+        font-size: 0.8rem;
+        color: #555;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+    }
+
+    /* Core Idea Lock-in (Replaces Sticky Block) */
+    .lock-in-section {
+        padding: 100px 30px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .lock-in-heading {
+        font-size: 1.8rem;
+        font-weight: 800;
+        /* Gradient Text */
+        background: linear-gradient(90deg, #d8b4fe, #fff, #86efac);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 24px;
+        letter-spacing: -0.5px;
+    }
+
+    .lock-in-subtext {
+        font-size: 1.15rem;
+        color: #fff;
+        line-height: 1.5;
+        font-weight: 500;
+        opacity: 0.9;
+    }
+
+    /* Framing Text Blocks */
+    .mobile-framing-text {
+        text-align: center;
+        padding: 80px 30px;
+        background: #050505;
+    }
+
+    /* Add specific spacing for the inline blocks */
+    .mobile-only-text {
+        margin-bottom: 20px;
+    }
+
+    .framing-main {
+        font-size: 1.4rem;
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 12px;
+        line-height: 1.35;
+    }
+
+    .framing-sub {
+        font-size: 1.1rem;
+        color: #888;
+        font-weight: 400;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeArrow {
+
+        0%,
+        100% {
+            opacity: 0.3;
+            transform: translateY(0);
+        }
+
+        50% {
+            opacity: 1;
+            transform: translateY(8px);
+        }
+    }
+}
