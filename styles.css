@@ -49,15 +49,15 @@ img {
    ========================================= */
 .split-hero {
     display: flex;
-    min-height: 120vh;
-    /* Explicit increase as requested */
+    min-height: 100vh;
+    /* Reduced from 120vh */
     height: auto;
     width: 100%;
     position: relative;
     overflow: visible;
     /* Disable clipping */
-    padding-bottom: 120px;
-    /* Large bottom padding */
+    padding-bottom: 80px;
+    /* Reduced form 120px */
     align-items: flex-start;
     /* Ensure content starts from top */
 }
@@ -137,7 +137,7 @@ img {
     font-size: 4rem;
     font-weight: 800;
     letter-spacing: 0.15em;
-    margin-bottom: 4vh;
+    margin-bottom: 20px;
     z-index: 2;
     /* Base text shadow */
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -193,7 +193,7 @@ img {
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     /* Safari */
-    padding: 40px 60px;
+    padding: 50px 75px;
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
@@ -204,13 +204,13 @@ img {
 }
 
 .overlay-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 15px;
     opacity: 0.8;
 }
 
 .overlay-text {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -263,12 +263,12 @@ img {
    SECTION 2: TWO-WAY FLOW CARDS
    ========================================= */
 .flow-section {
-    padding: 100px 20px;
+    padding: 60px 20px;
     background-color: #050505;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: 40px;
 }
 
 .flow-row {
@@ -326,7 +326,7 @@ img {
 .flow-caption {
     color: #888;
     font-size: 1rem;
-    margin-top: -30px;
+    margin-top: -20px;
     /* Pull closer to first row */
     font-weight: 500;
 }
@@ -336,7 +336,7 @@ img {
    SECTION 3: VALUE PROPOSITION CARDS
    ========================================= */
 .value-section {
-    padding: 80px 20px;
+    padding: 50px 20px;
     background-color: #050505;
     display: flex;
     justify-content: center;
@@ -386,11 +386,11 @@ img {
    SECTION 4: STRATEGY FUNNEL
    ========================================= */
 .funnel-section {
-    padding: 100px 20px;
+    padding: 60px 20px;
     background-color: #050505;
     display: flex;
     justify-content: center;
-    padding-bottom: 150px;
+    padding-bottom: 80px;
 }
 
 .funnel-stack {
@@ -597,9 +597,9 @@ img {
     align-items: center;
     /* Center horizontally (Critical) */
     text-align: center;
-    padding: 60px 0;
+    padding: 40px 0;
     /* Vertical spacing */
-    margin-top: 40px;
+    margin-top: 20px;
     /* Separation from previous section */
     background-color: transparent;
     /* No background as requested */
@@ -669,7 +669,7 @@ img {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 60px 24px;
+        padding: 40px 24px;
         width: 100%;
         position: relative;
     }
@@ -680,13 +680,13 @@ img {
         text-transform: uppercase;
         letter-spacing: 2px;
         color: #888;
-        margin-bottom: 40px;
+        margin-bottom: 16px;
         font-weight: 600;
         opacity: 0.8;
     }
 
     .mobile-supporting-text {
-        margin-top: 40px;
+        margin-top: 20px;
         font-size: 1.1rem;
         color: #e5e5e5;
         line-height: 1.6;
@@ -697,7 +697,7 @@ img {
     /* Zepto Specifics */
     .zepto-section {
         background: radial-gradient(circle at 50% 20%, rgba(147, 51, 234, 0.1) 0%, #050505 60%);
-        padding-top: 80px;
+        padding-top: 40px;
     }
 
     .zepto-section .mobile-heading-small {
@@ -708,7 +708,7 @@ img {
     /* Spotify Specifics */
     .spotify-section {
         background: radial-gradient(circle at 50% 20%, rgba(22, 163, 74, 0.1) 0%, #050505 60%);
-        padding-top: 60px;
+        padding-top: 40px;
     }
 
     .spotify-section .mobile-heading-small {
@@ -728,7 +728,7 @@ img {
 
     /* Insight Connector */
     .insight-section {
-        padding: 100px 30px;
+        padding: 60px 30px;
         background: transparent;
     }
 
@@ -748,7 +748,7 @@ img {
 
     /* Transition Arrow */
     .transition-section {
-        padding: 10px 0 50px 0;
+        padding: 20px 0;
         gap: 15px;
     }
 
@@ -768,13 +768,13 @@ img {
 
     /* Core Idea Lock-in (Replaces Sticky Block) */
     .lock-in-section {
-        padding: 100px 30px;
+        padding: 60px 30px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .lock-in-heading {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         font-weight: 800;
         /* Gradient Text */
         background: linear-gradient(90deg, #d8b4fe, #fff, #86efac);
@@ -786,7 +786,7 @@ img {
     }
 
     .lock-in-subtext {
-        font-size: 1.15rem;
+        font-size: 1.25rem;
         color: #fff;
         line-height: 1.5;
         font-weight: 500;
@@ -796,7 +796,7 @@ img {
     /* Framing Text Blocks */
     .mobile-framing-text {
         text-align: center;
-        padding: 80px 30px;
+        padding: 50px 24px;
         background: #050505;
     }
 
