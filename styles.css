@@ -16,6 +16,9 @@ body {
     color: #ffffff;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 img {
@@ -31,6 +34,7 @@ img {
     transform: translateY(30px);
     transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: opacity, transform;
+    backface-visibility: hidden;
 }
 
 .fade-in-init {
@@ -137,7 +141,8 @@ img {
     font-size: 4rem;
     font-weight: 800;
     letter-spacing: 0.15em;
-    margin-bottom: 20px;
+    /* Reduced margin to bring text closer */
+    margin-bottom: 10px;
     z-index: 2;
     /* Base text shadow */
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -163,12 +168,54 @@ img {
     filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
 }
 
-.zepto-panel .brand-title {
-    color: #a855f7;
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
-    animation: none;
-    /* Static */
+/* New Hero Text Stack Styles */
+.hero-text-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 10px;
+    z-index: 2;
 }
+
+.team-credit {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    color: #e5e5e5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+.collab-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.desktop-collab {
+    font-size: 1.5rem;
+    /* Larger on desktop */
+    margin-bottom: 10px;
+}
+
+.desktop-hero-heading {
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #a855f7;
+    /* Zepto Purple */
+    text-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+    margin-bottom: 15px;
+}
+
+/* Remove old brand title styles if conflicting, keeping for Spotify side */
+.zepto-panel .brand-title {
+    display: none;
+}
+
 
 .spotify-panel .brand-title {
     color: #22c55e;
@@ -378,7 +425,7 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease-out;
 }
 
 .value-card:hover {
@@ -585,14 +632,91 @@ img {
 
     .value-grid {
         flex-direction: column;
+        width: 100%;
+        /* Ensure full width */
     }
 
-    .site-footer {
+    /* Feature Cards - Mobile Resizing */
+    .value-section {
+        padding-top: 10px;
+        /* Pull closer to narrative */
+    }
+
+    .value-grid {
         width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        left: auto;
-        right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .value-card {
+        width: 94%;
+        /* Massive Impact */
+        max-width: 450px;
+        padding: 30px 24px;
+        margin-bottom: 16px;
+        /* Reduced gap */
+        display: flex;
+        /* Ensure flex for mobile too */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .value-icon {
+        font-size: 3.2rem;
+        /* Larger icons */
+        margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+        font-size: 1.4rem;
+        /* Larger heading */
+        margin-bottom: 10px;
+    }
+
+    /* Narrative Cluster Styles */
+    .mobile-narrative-cluster {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 24px 20px 24px;
+        /* Bottom padding reduced */
+        background: #050505;
+        width: 100%;
+    }
+
+    .mobile-narrative-cluster p {
+        margin-bottom: 12px;
+        line-height: 1.4;
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 1. Headline: "This is not a discount led strategy." */
+    .mobile-narrative-cluster p:nth-child(1) {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    /* 2. Subtext: "It is a behavior led retention engine." */
+    .mobile-narrative-cluster p:nth-child(2) {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #a0a0a0;
+        /* Lighter/Greyer */
+        margin-bottom: 16px;
+        /* Slightly larger gap before next block */
+    }
+
+    /* 3 & 4. Insight Lines */
+    .mobile-narrative-cluster p:nth-child(n+3) {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #e5e5e5;
     }
 }
 
@@ -689,24 +813,48 @@ img {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 30px 16px;
+        padding: 15px 16px;
         width: 100%;
         position: relative;
     }
 
     /* Typography */
     .mobile-heading-small {
-        font-size: 0.85rem;
+        font-size: 1.25rem;
         text-transform: uppercase;
         letter-spacing: 2px;
-        color: #888;
-        margin-bottom: 12px;
+        color: #d8b4fe;
+        /* Zepto Purple */
+        margin-bottom: 10px;
+        /* Minimal gap to phone */
         font-weight: 600;
-        opacity: 0.8;
+        opacity: 1;
+    }
+
+    /* Mobile Text Hierarchy Overrides */
+    .mobile-hero-container .team-credit {
+        font-size: 1.1rem;
+        /* Increased size */
+        font-weight: 600;
+        /* Semibold */
+        letter-spacing: 2px;
+        color: #f3e8ff;
+        /* Soft lavender/white */
+        opacity: 0.9;
+        margin-bottom: 2px;
+        /* Tight grouping */
+    }
+
+    .mobile-hero-container .collab-title {
+        font-size: 0.95rem;
+        font-weight: 400;
+        color: #ffffff;
+        margin-bottom: 15px;
+        /* Gap to next section */
     }
 
     .mobile-supporting-text {
-        margin-top: 15px;
+        margin-top: 12px;
         font-size: 1.1rem;
         color: #e5e5e5;
         line-height: 1.6;
@@ -738,17 +886,19 @@ img {
 
     /* Mockups - Ensure full view */
     .mobile-mockup {
-        width: 95%;
-        max-width: 500px;
+        width: 80%;
+        /* Prominent but balanced */
+        max-width: 400px;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         margin: 0 auto;
         border-radius: 20px;
         overflow: hidden;
+        margin-bottom: 10px;
     }
 
     /* Insight Connector */
     .insight-section {
-        padding: 60px 30px;
+        padding: 40px 24px;
         background: transparent;
     }
 
@@ -757,7 +907,7 @@ img {
         font-weight: 800;
         color: #fff;
         line-height: 1.25;
-        margin-bottom: 24px;
+        margin-bottom: 12px;
     }
 
     .insight-subtext {
@@ -766,29 +916,11 @@ img {
         line-height: 1.6;
     }
 
-    /* Transition Arrow */
-    .transition-section {
-        padding: 20px 0;
-        gap: 15px;
-    }
-
-    .mobile-arrow {
-        font-size: 2.5rem;
-        color: #444;
-        animation: fadeArrow 1.5s ease-in-out infinite;
-    }
-
-    .context-label {
-        font-size: 0.8rem;
-        color: #555;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-weight: 600;
-    }
+    /* Transition Arrow REMOVED */
 
     /* Core Idea Lock-in (Replaces Sticky Block) */
     .lock-in-section {
-        padding: 60px 30px;
+        padding: 40px 24px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
