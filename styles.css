@@ -143,6 +143,26 @@ img {
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* New Desktop Mockup Rule */
+.device-mockup {
+    width: 85%;
+    max-width: 420px;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.device-mockup img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5));
+}
+
 .zepto-panel .brand-title {
     color: #a855f7;
     text-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
@@ -477,13 +497,13 @@ img {
 
     /* 3. Phone Mockups Scaling */
     .device-mockup {
-        width: 90%;
+        width: 85%;
         /* Fit within 50% column */
-        max-width: 160px;
-        /* Cap size */
+        max-width: 320px;
+        /* Cap size - Increased from 160px */
         height: auto;
         aspect-ratio: 320/600;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         /* Lighter shadow */
         border-radius: 20px;
@@ -719,7 +739,7 @@ img {
     /* Mockups - Ensure full view */
     .mobile-mockup {
         width: 200px;
-        max-width: 70%;
+        max-width: 85%;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         margin: 0 auto;
         border-radius: 24px;
